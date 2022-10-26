@@ -91,11 +91,15 @@ class MyArray {
     //як звернутися до першого елементу?
     const deletedValue = this[this.elems[0]];
     delete this[this.elems[0]];
-    return deletedValue;
-
+    
     //здвину всі інші елементи масиву на один вверх
+    
+    for (let i = 0; i < this.length; i++) {
+      this[i] = this[i + 1];
+    }
+    this.length--;    
+    return deletedValue;
   }
-}
 
 const myArr = new MyArray();
 myArr.push(10, 20, 30);
